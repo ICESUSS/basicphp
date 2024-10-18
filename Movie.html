@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Cards</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* สีพื้นหลัง */
+        }
+
+        header {
+            background-color: #28a745; /* สีเขียว */
+            color: white; /* สีข้อความ */
+            padding: 10px 20px; /* เพิ่ม padding */
+            width: 100%; /* ความกว้างเต็มที่ */
+            text-align: center; /* จัดกึ่งกลางข้อความ */
+            position: absolute; /* วางให้ติดกับด้านบน */
+            top: 0; /* ตำแหน่งด้านบน */
+            left: 0; /* ตำแหน่งด้านซ้าย */
+            z-index: 10; /* ให้อยู่ด้านบนสุด */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            gap: 10px;
+            margin-top: 60px; /* เพิ่มระยะห่างจาก header */
+        }
+        
+        .card {
+            min-width: 50px;
+            width: 100px;
+            height: 150px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            cursor: pointer;
+            transition: flex-grow 0.5s, height 0.5s;
+            flex-grow: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+        }
+        
+        .card:hover {
+            flex-grow: 3;
+            height: 250px;
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .description {
+            opacity: 0; /* ซ่อนคำอธิบายเริ่มต้น */
+            transition: opacity 0.5s; /* เพิ่มความนุ่มนวลในการแสดงคำอธิบาย */
+            position: absolute;
+            bottom: 10px; /* ตำแหน่งด้านล่าง */
+            left: 10px; /* ตำแหน่งด้านซ้าย */
+            color: white; /* สีข้อความ */
+            font-size: 12px; /* ขนาดข้อความ */
+            z-index: 2; /* ให้อยู่ด้านบน */
+        }
+
+        .card:hover .description {
+            opacity: 1; /* แสดงคำอธิบายเมื่อ hover */
+        }
+
+        footer {
+            margin-top: 20px; /* ระยะห่างจากคอนเทนเนอร์ */
+            text-align: center; /* จัดกึ่งกลาง */
+        }
+
+        .home-link {
+            text-decoration: none; /* ไม่มีเส้นใต้ */
+            padding: 10px 20px; /* เพิ่ม padding */
+            background-color: #039026; /* สีพื้นหลัง */
+            color: white; /* สีข้อความ */
+            border-radius: 5px; /* มุมมน */
+            transition: background-color 0.3s; /* เปลี่ยนสีพื้นหลังนุ่มนวล */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+        }
+
+        .home-link:hover {
+            background-color: #034807; /* เปลี่ยนสีเมื่อ hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Movie Preview</h1> <!-- ชื่อหัวเรื่อง -->
+    </header>
+    <div class="container">
+        <div class="card" style="background-color: #ff0000;">
+            <div class="profile-image" style="background-image: url('images/ab67656300005f1f8ecf1a34bbfe7792d53270b6.jpg');"></div>
+            <div class="description">พรีวิว: ธี่หยด</div>
+            
+        </div>
+        <div class="card" style="background-color: #00ff00;">
+            <div class="profile-image" style="background-image: url('images/MV5BMWJlN2U5MzItNjU4My00NTM2LWFjOWUtOWFiNjg3ZTMxZDY1XkEyXkFqcGc@._V1_.jpg');"></div>
+            <div class="description">พรีวิว: The Boys</div>
+        </div>
+        <div class="card" style="background-color: #0000ff;">
+            <div class="profile-image" style="background-image: url('images/0_PmjoCvGpMPYFTP-0.jpg');"></div>
+            <div class="description">พรีวิว: Blue Lock</div>
+        </div>
+        <div class="card" style="background-color: #ffff00;">
+            <div class="profile-image" style="background-image: url('images/Rick_and_Morty_season_7.jpg');"></div>
+            <div class="description">พรีวิว: Rick and Morty</div>
+        </div>
+    </div>
+    <footer>
+        <a class="home-link" href="index.php">Home</a>
+    </footer>
+</body>
+</html>

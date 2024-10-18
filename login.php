@@ -41,7 +41,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 20%;
+  width: 25%;
   border-radius: 20%;
 }
 
@@ -68,7 +68,7 @@ span.psw {
 </head>
 <body>
 
-<h2>Login Form</h2>
+
 
 <form action="api/api_login.php" method="post">
   <div class="imgcontainer">
